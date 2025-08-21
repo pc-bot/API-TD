@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info: 
+  title: tester le fonctionnement d'un api avec ping 
+  version : 1.0.0
+
+servers: 
+  - url: http://localhost:3000/api
+    description : Seveur
+
+paths: 
+  /ping:
+    get: 
+      summary: doit retourner un pong
+      description : à partir d'un ping on veut voir si il y a un pong
+      operationId: getPing
+      responses: 
+        '200':
+          description: il fonctionne 
+          content: 
+            text/plain: 
+              schema:
+                type: string
+                example : pong 
+      tags:
+        - Test 
+
+
+
+
+
+
