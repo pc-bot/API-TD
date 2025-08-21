@@ -31,4 +31,20 @@ paths:
       responses: 
         '200':
            description: vous obtenner un utilisateur avec succes
+           content: 
+            application/json : 
+              schema :
+                data: 
+                  items: 
+                      $ref: '#/components/schemas/users'
+
+components: 
+  schemas:
+    /users:
+      type: object
+      properties:
+        id :
+          type: integer
+
+
 
