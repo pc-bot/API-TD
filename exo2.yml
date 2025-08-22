@@ -33,18 +33,19 @@ paths:
            description: vous obtenner un utilisateur avec succes
            content: 
             application/json : 
-              schema :
-                data: 
-                  items: 
-                      $ref: '#/components/schemas/users'
-
-components: 
-  schemas:
-    /users:
-      type: object
-      properties:
-        id :
-          type: integer
+              schema: 
+                type: object
+                properties: 
+                  id :
+                    type : integer
+                    example : 1
+                  name : 
+                    type : string
+                    example : jessica
+                  email :
+                    type : string
+                    example : jessi@gmail.com
+  
 
 
 
