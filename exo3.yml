@@ -1,0 +1,50 @@
+openapi : 3.0.0 
+info : 
+  title : tasks lists
+  version : 1.0.0
+
+servers:
+  - url : http://localhost:3000/api
+    description : get post put with json
+
+paths: 
+  /tasks :
+    get : 
+      summary: retourn the lists of tasks
+      description : all tasksLists return 
+      tags: 
+      - tasks
+      responses: 
+        '200' : 
+          description: lists of all tasks
+          content : 
+            application/json:
+              schema : 
+                type : object
+                properties: 
+                  data : 
+                    type : array
+                    items : 
+                      $ref : '#/components/schemas/Tasks'
+
+components : 
+  schemas:
+    Tasks :
+      type : object
+      properties: 
+        id : 
+          type : integer
+          example : 2
+        title : 
+          type : string
+          example : doing chores
+        completed : 
+           type : boolean
+           example : false
+
+
+
+        
+
+
+  
