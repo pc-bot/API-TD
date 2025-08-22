@@ -26,6 +26,27 @@ paths:
                     type : array
                     items : 
                       $ref : '#/components/schemas/Tasks'
+    post : 
+      summary: create a new task
+      requestBody:
+        required:  true
+        content : 
+          application/x-www-form-urlencoded: 
+            schema : 
+              type: object
+              properties: 
+                id : 
+                  type : string
+                
+      tags : 
+        - tasks 
+      responses: 
+        '201' : 
+          description : task added with success
+
+            
+
+
 
 components : 
   schemas:
