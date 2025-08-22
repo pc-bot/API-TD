@@ -45,7 +45,18 @@ paths:
                   email :
                     type : string
                     example : jessi@gmail.com
-                    
+        '400': 
+          description: bad request
+          content: 
+            application/json: 
+              schema : 
+                type : object
+                properties: 
+                  error : 
+                    type: string
+                    example : Bad types for provided query parameters
+
+
   
 
 
