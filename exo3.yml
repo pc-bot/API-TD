@@ -27,26 +27,31 @@ paths:
                     items : 
                       $ref : '#/components/schemas/Tasks'
     post : 
-      summary: create a new task
-      requestBody:
-        required:  true
+      summary : create a new task        
+      tags : 
+        - tasks
+      requestBody : 
+        required: true 
         content : 
-          application/x-www-form-urlencoded: 
+          application/json :
             schema : 
               type: object
-              properties: 
-                id : 
-                  type : string
-                
-      tags : 
-        - tasks 
+              items : 
+                $ref  : '#/components/schemas/CreateTask'
+    
+              
       responses: 
         '201' : 
           description : task added with success
-
-            
-
-
+          content : 
+            application/json : 
+              schema : 
+                type : object
+                properties: 
+                  data : 
+                    type : array
+                    items : 
+                      $ref : '#/components/schemas/Tasks'
 
 components : 
   schemas:
@@ -61,6 +66,23 @@ components :
           example : doing chores
         completed : 
            type : boolean
+           example : false
+    
+    CreateTask:
+      type: object 
+      required: 
+        - title
+        - completed
+      properties:
+        id : 
+          type: integer
+          format : int64
+          readOnly : true
+        title : 
+          type : string
+          example : 'take a rest'
+        completed :
+           type: boolean
            example : false
 
 
