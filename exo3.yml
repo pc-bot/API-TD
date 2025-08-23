@@ -38,20 +38,32 @@ paths:
               type: object
               items : 
                 $ref  : '#/components/schemas/CreateTask'
-    
-              
       responses: 
         '201' : 
           description : task added with success
-          content : 
-            application/json : 
-              schema : 
-                type : object
-                properties: 
-                  data : 
-                    type : array
-                    items : 
-                      $ref : '#/components/schemas/Tasks'
+
+  /tasks/{id}:
+    put:
+      summary: update the id
+      parameters:
+        - name : id 
+          in : path
+          required: false
+          schema : 
+            type : integer
+      requestBody : 
+        required: true
+        content: 
+          application/json :
+            schema : 
+              $ref : '#/components/schemas/CreateTask'
+      responses:
+        '200' : 
+            description: your task is updated
+
+
+      tags: 
+          - task 
 
 components : 
   schemas:
