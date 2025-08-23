@@ -57,10 +57,12 @@ paths:
         content: 
           application/json :
             schema : 
-              $ref : '#/components/schemas/CreateTask'
+              $ref : '#/components/schemas/UpdateTask'
       responses:
         '200' : 
             description: your task is updated
+        '404':
+            description: 'no id found'
     delete : 
       summary: delete the task by id
       description: your task has been delete
@@ -75,10 +77,8 @@ paths:
       responses: 
           '200' : 
             description: 'your taks has been deleted'
-
-
-
-
+          '404':
+            description: 'no id found'
 
       tags: 
           - task 
@@ -114,6 +114,17 @@ components :
         completed :
            type: boolean
            example : false
+
+    UpdateTask : 
+      type : object 
+      properties: 
+        title : 
+          type : string 
+          example : 'new chores'
+        completed :
+          type : boolean
+          example : true
+      
 
 
 
