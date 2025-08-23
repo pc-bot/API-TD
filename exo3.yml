@@ -45,10 +45,11 @@ paths:
   /tasks/{id}:
     put:
       summary: update the id
+      description: the task has been updated
       parameters:
         - name : id 
           in : path
-          required: false
+          required: true
           schema : 
             type : integer
       requestBody : 
@@ -60,6 +61,23 @@ paths:
       responses:
         '200' : 
             description: your task is updated
+    delete : 
+      summary: delete the task by id
+      description: your task has been delete
+      parameters: 
+        - name : id 
+          in : path 
+          required: true 
+          content : 
+              application/json :
+                schema : 
+                  $ref: '#/components/schemas/CreateTask'
+      responses: 
+          '200' : 
+            description: 'your taks has been deleted'
+
+
+
 
 
       tags: 
