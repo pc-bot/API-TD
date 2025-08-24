@@ -16,7 +16,20 @@ paths :
                 type: array 
                 items: 
                   $ref : '#/components/schemas/Tasks'
-
+  /tasks/{id}:
+    get :
+      description : retourne une tache par son id
+      parameters: 
+        - $ref : '#/components/parameters/ParametersId'
+      responses : 
+        '200' : 
+          description: voici la tache demandée
+          content:
+            application/json :
+              schema : 
+                $ref : '#/components/schemas/Tasks'
+          
+         
 components :
   schemas:
     Tasks :
@@ -30,4 +43,16 @@ components :
           type : string 
         completed : 
           type: boolean
+  parameters: 
+    ParametersId :
+      name : id
+      in : path 
+      required : true
+      schema : 
+          type: integer 
+          format : int64
+          minimum : 1
+
+        
+       
         
