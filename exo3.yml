@@ -46,23 +46,17 @@ paths:
 
   /tasks/{id}:
     get : 
-      summary: retourne la tache par son id
-      description : retourne la tache specifié
-      tags :
-      - tasks
-      parameters :
+      summary: Retourne la tâche par son ID
+      description: Retourne la tâche spécifiée
+      tags:
+        - tasks
+      parameters:
         - name: id
-          in : path 
-          required : true
-          schema : 
+          in: path
+          required: true
+          schema:
             type: integer
-      requestBody: 
-        required : true
-        content: 
-          application/json :
-            schema : 
-              type: integer
-              minimum : 1
+            minimum: 1
       responses: 
         '200':
           description: voici la tache 
