@@ -1,3 +1,19 @@
+openapi : 3.0.0
+info : 
+  title : ping openapi 
+  version : 1.1.1
+
+paths: 
+  /ping :
+    get : 
+      responses :
+        '200': 
+          description : your pong has been returned
+          content : 
+            text/plain :
+              schema :
+                type : string
+                example : pong
 
 
 
