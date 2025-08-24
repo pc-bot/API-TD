@@ -45,6 +45,37 @@ paths:
                 $ref: '#/components/schemas/Tasks'
 
   /tasks/{id}:
+    get : 
+      summary: retourne la tache par son id
+      description : retourne la tache specifié
+      tags :
+      - tasks
+      parameters :
+        - name: id
+          in : path 
+          required : true
+          schema : 
+            type: integer
+      requestBody: 
+        required : true
+        content: 
+          application/json :
+            schema : 
+              type: integer
+              minimum : 1
+      responses: 
+        '200':
+          description: voici la tache 
+          content:
+            application/json :
+              schema : 
+                type: object 
+                properties: 
+                  data: 
+                    type : array 
+                    items: 
+                      $ref : '#/components/schemas/Tasks'
+
     put:
       summary: mettre à jour une tâche par son id
       description: la tâche a été mise à jour
@@ -95,7 +126,7 @@ components:
       properties:
         id:
           type: integer
-          example: 2
+          example: 1
         title:
           type: string
           example: doing chores
