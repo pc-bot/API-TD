@@ -16,6 +16,22 @@ paths :
                 type: array 
                 items: 
                   $ref : '#/components/schemas/Tasks'
+    post : 
+      description: ajout d'un nouveau tache 
+      requestBody :
+        required: true
+        content:
+          application/json :
+            schema: 
+              $ref : '#/components/schemas/CreateTask'
+
+      responses :
+        '201':
+            description: votre tache a ete ajoutée
+            content: 
+              application/json :
+                schema :
+                  $ref: '#/components/schemas/Tasks'
   /tasks/{id}:
     get :
       description : retourne une tache par son id
@@ -28,6 +44,9 @@ paths :
             application/json :
               schema : 
                 $ref : '#/components/schemas/Tasks'
+        '404' :
+          description: 'Tache non trouvé '
+    
           
          
 components :
@@ -43,6 +62,17 @@ components :
           type : string 
         completed : 
           type: boolean
+    CreateTask:
+      type : object
+      properties :
+          title :
+            type : string
+          completed :
+            type : boolean
+            required :
+              - id
+              - title 
+              - integer
   parameters: 
     ParametersId :
       name : id
@@ -51,7 +81,16 @@ components :
       schema : 
           type: integer 
           format : int64
-          minimum : 1
+          minimum : 1 
+
+
+                  
+                    
+                
+
+              
+
+
 
         
        
