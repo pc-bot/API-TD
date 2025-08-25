@@ -23,6 +23,10 @@ paths :
       description: parametres des ordres
       parameters:
         - $ref: "#/components/schemas/Order"
+      responses:
+        '200' :
+          description: voici les listes d'Ordres
+       
         
 
 components:
