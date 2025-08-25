@@ -18,6 +18,12 @@ paths :
                 type: array
                 items: 
                   $ref : "#/components/schemas/Products"
+  /order:
+    get: 
+      description: parametres des ordres
+      parameters:
+        - $ref: "#/components/schemas/Order"
+        
 
 components:
   parameters:
@@ -34,6 +40,7 @@ components:
       required: false
       schema:
         type : integer
+        
   schemas:
     Products:
       type : object
@@ -50,5 +57,26 @@ components:
         price:
           type : integer
           format : float
+    Order :
+      type: object
+      required: 
+        - id 
+        - customer_name
+        - creation_datetime
+        - total_amount
+      properties:
+        id :
+          type : integer
+        customer_name :
+          type: string
+        creation_datetime:
+          type: string
+          format : date-time
+        total_amount :
+          type : integer
+          format : float
+        
+
+
 
 
