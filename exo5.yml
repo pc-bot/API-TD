@@ -7,6 +7,26 @@ paths :
     get : 
       description: retourne les produits
       parameters:
-        - $ref : "#/components/parameters/Limit"
-        - $ref : "#/components/parameters/Query"
+      - $ref : "#/components/parameters/Limit"
+      - $ref : "#/components/parameters/Query"
+      responses: 
+        '200' : 
+          
+
+components:
+  parameters:
+    Limit:
+      name: limit
+      in : query
+      required: false
+      schema: 
+        type: integer
+        maximum : 100
+    Query :
+      name : integer
+      in : query
+      required: false
+      schema:
+        type : integer
+
 
