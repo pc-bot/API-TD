@@ -1,0 +1,12 @@
+openapi : 3.0.0
+info : 
+  title: Products with tags
+  version : 1.0.0
+paths :
+  /products :
+    get : 
+      description: retourne les produits
+      parameters:
+        - $ref : "#/components/parameters/Limit"
+        - $ref : "#/components/parameters/Query"
+
