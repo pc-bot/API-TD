@@ -26,7 +26,6 @@ paths :
           application/json :
             schema: 
               $ref : '#/components/schemas/CreateTask'
-
       responses :
         '201':
             description: votre tache a ete ajoutée
@@ -34,6 +33,19 @@ paths :
               application/json :
                 schema :
                   $ref: '#/components/schemas/Tasks'
+    delete: 
+       description:  Supprime une liste de taches
+       summary: Suppimer une liste de taches 
+       responses: 
+        '200' : 
+          description: liste de taches supprimés
+          content: 
+            application/json : 
+              schema : 
+                type : array
+                items: 
+                  $ref : '#/components/schemas/Tasks'
+      
   /tasks/{id}:
     get :
       summary: Obtenir une tache spécifié
