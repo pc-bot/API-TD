@@ -3,17 +3,54 @@ info :
   title: Listes des produits
   version : 1.0.0
 paths : 
+  /products :
+    get:
+      description: retourne les produits
+      parameters: 
+        - $ref : "#/components/parameters/Limit"
+      responses: 
+        '200' : 
+          description: retourne une liste des produits
+          content:
+            application/json:
+              schema:
+                type : array
+                items:
+                  $ref : "#/components/schemas/Products"
+              example :
+                Products :
+                  - name : lait
+                    expiration_date : "2024-12-31T23:59:59Z"
+                    price : 300.00
+                  - name : pomme
+                    expiration_date : "2024-08-12T30:14:20Z"
+                    price : 12.90
+                  - name : jambon 
+                    expiration_date : "2024-11-01T12:02:09Z"
+                  
+                  
+
+
+
 
 components : 
   schemas:
     Products :
-      type : object 
+      type : object
+      required:
+        - name
+        - expiration_date
+        - price
       properties : 
         name :
           type:  string
-        expiration : 
+        expiration_date : 
           type : string
           format : date-time
         price: 
           type : number
           format : float
+  parameters: 
+    Limit:
+      
+      

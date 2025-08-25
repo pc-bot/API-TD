@@ -92,14 +92,7 @@ paths :
           content: 
             application/json :
                schema : 
-                  $ref: '#/components/schemas/Tasks'
-        
-        
-
-        
-    
-          
-         
+                  $ref: '#/components/schemas/Tasks' 
 components :
   schemas:
     Tasks :
