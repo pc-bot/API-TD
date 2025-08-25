@@ -11,7 +11,13 @@ paths :
       - $ref : "#/components/parameters/Query"
       responses: 
         '200' : 
-          
+          description: retourne les produits
+          content:
+            application/json:
+              schema : 
+                type: array
+                items: 
+                  $ref : "#/components/schemas/Products"
 
 components:
   parameters:
@@ -28,5 +34,21 @@ components:
       required: false
       schema:
         type : integer
+  schemas:
+    Products:
+      type : object
+      required:
+        - name
+        - expiration_date
+        - price
+      properties:
+        name:
+          type: string
+        expiration_date:
+          type: string
+          format : date-time
+        price:
+          type : integer
+          format : float
 
 
