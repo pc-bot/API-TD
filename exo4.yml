@@ -8,6 +8,7 @@ paths :
       description: retourne les produits
       parameters: 
         - $ref : "#/components/parameters/Limit"
+        - $ref : "#/components/parameters/Query"
       responses: 
         '200' : 
           description: retourne une liste des produits
@@ -27,11 +28,7 @@ paths :
                     price : 12.90
                   - name : jambon 
                     expiration_date : "2024-11-01T12:02:09Z"
-                  
-                  
-
-
-
+                    price: 40.00
 
 components : 
   schemas:
@@ -51,6 +48,25 @@ components :
           type : number
           format : float
   parameters: 
-    Limit:
+    Limit : 
+      name: limit
+      in : query
+      required: false
+      schema :
+        type : integer
+        maximum : 100
+    Query :
+      name : query
+      in : query
+      required: false
+      schema: 
+        type : integer
+        maximum : 100
+       
+    
+
+      
+      
+      
       
       
