@@ -1,0 +1,19 @@
+openapi : 3.0.0
+info : 
+  title: Listes des produits
+  version : 1.0.0
+paths : 
+
+components : 
+  schemas:
+    Products :
+      type : object 
+      properties : 
+        name :
+          type:  string
+        expiration : 
+          type : string
+          format : date-time
+        price: 
+          type : number
+          format : float
