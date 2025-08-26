@@ -6,6 +6,8 @@ paths :
   /products :
     get : 
       description: retourne les produits
+      tags:
+        - Products
       parameters:
       - $ref : "#/components/parameters/Limit"
       - $ref : "#/components/parameters/Query"
@@ -20,14 +22,42 @@ paths :
                   $ref : "#/components/schemas/Products"
   /order:
     get: 
-      description: parametres des ordres
+      description: listes des ordres
+      tags:
+        - Order
       parameters:
         - $ref: "#/components/schemas/Order"
       responses:
         '200' :
           description: voici les listes d'Ordres
-       
-        
+          content:
+            application/json:
+              schema: 
+                type : array
+                items: 
+                  $ref : "#/components/schemas/Order"
+    post :
+      description: creations des ordres
+      tags:
+        - Order
+      requestBody: 
+        required : true
+        content: 
+          application/json:
+            schema : 
+              $ref : "#/components/schemas/CreateProducts"
+      responses: 
+        '200' : 
+          description: liste créée
+          content :
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Order"
+
+
+
 
 components:
   parameters:
@@ -79,6 +109,17 @@ components:
         total_amount :
           type : integer
           format : float
+    CreateProducts :
+      type : object 
+      properties: 
+        customer_name :
+          type: string
+        creation_datetime :
+          type: string
+          format : date-time
+        total_amount:
+          type : integer
+          format: float
         
 
 
