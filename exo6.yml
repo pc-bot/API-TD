@@ -1,0 +1,28 @@
+openapi : 3.0.0
+info : 
+  title : Profil de l'utilisateur 
+  version:  1.0.0
+paths : 
+   /produits :
+      get:
+
+components:
+  schemas:
+    CreateUserProfile:
+      type: object
+      properties:
+        id : 
+          type: integer
+        first_name : 
+          type: string
+        last_name :
+          type : string
+        birthdate :
+          type : string
+          format : date
+        email :
+          type : string
+          format: email
+        adress_street :
+          type : string
+        
