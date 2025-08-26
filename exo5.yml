@@ -37,6 +37,8 @@ paths :
                 items: 
                   $ref : "#/components/schemas/Order"
     post :
+      security:
+        - BasicAuth: []
       description: creations des ordres
       tags:
         - Order
@@ -60,6 +62,10 @@ paths :
 
 
 components:
+  securitySchemes:
+    BasicAuth: 
+      type: http
+      scheme: basic
   parameters:
     Limit:
       name: limit
@@ -69,11 +75,23 @@ components:
         type: integer
         maximum : 100
     Query :
-      name : integer
+      name : query
       in : query
       required: false
       schema:
         type : integer
+    Page : 
+      name : Page
+      in : query
+      required : false
+      schema :
+        type : integer
+    Size :
+      name : size
+      in : query
+      required : false
+      schema :
+        type: integer
         
   schemas:
     Products:

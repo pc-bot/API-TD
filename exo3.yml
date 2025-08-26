@@ -120,8 +120,8 @@ components :
   parameters: 
     ParametersId :
       name : id
-      in : path 
-      required : true
+      in : query
+      required : false
       schema : 
           type: integer 
           format : int64
