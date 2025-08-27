@@ -25,4 +25,11 @@ components:
           format: email
         adress_street :
           type : string
-        
+        adress_city :
+          type : string
+        adress_country :
+          type : string
+        adress_postal_code :
+          type : string 
+        needs_newsletters:
+          type : string
