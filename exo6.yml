@@ -33,3 +33,10 @@ components:
           type : string 
         needs_newsletters:
           type : string
+        language :
+          type : string
+          enum :
+            - mg
+            - fr 
+            - eng
+
