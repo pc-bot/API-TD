@@ -119,10 +119,11 @@ components :
               - integer
   parameters: 
     ParametersId :
-      name : id
-      in : query
-      required : false
-      schema : 
+      parameters:
+      - name : id
+        in : path
+        required : true
+        schema : 
           type: integer 
           format : int64
           minimum : 1 

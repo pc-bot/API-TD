@@ -3,8 +3,8 @@ info :
   title : Profil de l'utilisateur 
   version:  1.0.0
 paths : 
-   /produits :
-      get:
+   /produits/{id} :
+      get: 
 
 components:
   schemas:
