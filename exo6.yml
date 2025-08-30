@@ -3,12 +3,41 @@ info :
   title : Profil de l'utilisateur 
   version:  1.0.0
 paths : 
-   /produits/{id} :
+    /users/:
+      post : 
+        description: ajout d'un nouvel utilisateurs
+        tags :
+          - Users
+        requestBody :
+          required : true
+          content :
+            application/json :
+              schema :
+                 $ref: '#/components/schemas/CreateUserProfile'
+                 
+
+    /users/{id} :
       get: 
+        description: retourne l'utilisateur avec tous les informations le concernant
+        tags :
+          - Users
+        parameters: 
+          - $ref : '#/components/parameters/parametersId'
+        responses:
+          '200':
+            description: retourne les informations sur l'utilisateur
+            content: 
+              application/json:
+                schema :
+                  type : array
+                  items :
+                    $ref : '#/components/schemas/UserProfile'
+      
+          
 
 components:
   schemas:
-    CreateUserProfile:
+    UserProfile:
       type: object
       properties:
         id : 
@@ -39,4 +68,55 @@ components:
             - mg
             - fr 
             - eng
+    CreateUserProfile: 
+      type : object
+      required: 
+        - personalInfo
+        - preferences
+      properties:
+        personalInfo :
+          $ref : '#/components/schemas/PersonalInfo'
+        address :
+          $ref : '#/components/schemas/Address'
+        preferences :
+          $ref : '#/components/schemas/Preferences'
+    PersonalInfo :
+      type: object
+      required: 
+        - first_name
+        - last_name
+        - birthdate
+      properties: 
+        first_name:
+          type: string
+          description: prenom utilisateur
+        last_name:
+           type : string
+           description: nom utilisateur
+        birthdate : 
+            type: string
+            format: date
+    Address :
+      type : object
+      required: 
+        - email 
+        - adress_street
+        - adress_city
+        - adress_country
+        - adress_postal_code
+
+    
+  parameters:
+    parametersId:
+      name : id
+      in : path
+      required: true
+      schema : 
+        type: integer 
+        format : int64
+        minimum : 1
+
+
+
+
 
