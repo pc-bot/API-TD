@@ -14,6 +14,16 @@ paths :
             application/json :
               schema :
                  $ref: '#/components/schemas/CreateUserProfile'
+        responses:  
+          '200':
+            description: utilisateur crée 
+            content : 
+              application/json :
+                schema :
+                  $ref : '#/components/schemas/CreateUserProfile'
+
+
+          
                  
 
     /users/{id} :
@@ -39,35 +49,22 @@ components:
   schemas:
     UserProfile:
       type: object
+      required: 
+        - id 
+        - personalInfo
+        - preferences
       properties:
         id : 
-          type: integer
-        first_name : 
-          type: string
-        last_name :
-          type : string
-        birthdate :
-          type : string
-          format : date
-        email :
-          type : string
-          format: email
-        adress_street :
-          type : string
-        adress_city :
-          type : string
-        adress_country :
-          type : string
-        adress_postal_code :
-          type : string 
-        needs_newsletters:
-          type : string
-        language :
-          type : string
-          enum :
-            - mg
-            - fr 
-            - eng
+          type : integer
+          format : int64
+          description: id 
+        personalInfo :
+          $ref: '#/components/schemas/PersonalInfo'
+        address:
+          $ref : '#/components/schemas/Address'
+        preferences :
+          $ref: '#/components/schemas/Preferences'
+
     CreateUserProfile: 
       type : object
       required: 
@@ -120,6 +117,15 @@ components:
         address_postal_code :
           type : string 
           description: carte postal
+        needs_newsletter: 
+          type : boolean
+    Preferences :
+      type : object
+      properties: 
+        language :
+          type : string
+          enum : [fr, eng, mg]
+          default : fr
     
   parameters:
     parametersId:
