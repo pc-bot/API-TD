@@ -100,11 +100,26 @@ components:
       type : object
       required: 
         - email 
-        - adress_street
-        - adress_city
-        - adress_country
-        - adress_postal_code
-
+        - address_street
+        - address_city
+        - address_country
+        - address_postal_code
+      properties:
+        email: 
+          type : string
+          description: email
+        address_city :
+          type : string
+          description: ville
+        address_street :
+          type: string
+          description: l'adresse de rue
+        address_country :
+          type: string
+          description: pays
+        address_postal_code :
+          type : string 
+          description: carte postal
     
   parameters:
     parametersId:
